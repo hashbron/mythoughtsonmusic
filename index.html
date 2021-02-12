@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap" rel="stylesheet"> -->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172020008-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-172020008-1');
+  </script>
+
+  <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+
+  <!-- Popup -->
+  <div class="overlay">
+    <span class="overlayBox" id="myOverlay" onclick="fadeOut()"></span>
+  </div>
+
+  <div class="popup">
+    <span class="popupWindow" id="myPopup">
+      <span class="close" onclick="fadeOut()" title="Close">X</span> 
+      <iframe id="theframe" width=100% height=100% style="border: 12px solid white; background-color: black;"></iframe>
+    </span>
+  </div>
+
+  <!-- Header -->
+  <div class="header" id="here">
+    <h1>My Thoughts On Music [Beta]</h1>
+    <p>Click on an album below to read my thoughts.</p>
+  </div>
+
+  <div class="grid-container" id="grid">
+  </div>
+
+<!--   <div class="container">
+      <div class="border" onclick="fadeIn('miss-anthropocene.html')">
+        <img src="album-artwork/1000-gecs.jpg">
+        <div class="middle">
+          <div class="title">1000 Gecs</div>
+        </div>
+      </div>
+    </div> -->
+
+  <div class="header">
+    <p>Thanks for reading!</p>
+  </div>
+
+  <script type="text/javascript" src="data.json"></script>
+  <script type="text/javascript" src="homepage.js"></script>
+
+</body>
+</html>

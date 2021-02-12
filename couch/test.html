@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="test.css">
+</head>
+<body>
+
+  <!-- Popup -->
+  <div class="overlay">
+    <span class="overlayBox" id="myOverlay" onclick="fadeOut()"></span>
+  </div>
+
+  <div class="popup">
+    <span class="popupWindow" id="myPopup">
+      <span class="close" onclick="fadeOut()" title="Close">X</span> 
+      <iframe id="theframe" width=100% height=100% style="border: 12px solid white;"></iframe>
+    </span>
+  </div>
+
+  <!-- <div class="title">
+    <h1>My Thoughts On Music</h1>
+  </div> -->
+
+  <!-- <div class="triangle-left"></div> -->
+
+  <div class="wall-art">
+    <div class="grid-container" id="grid">
+      <div class="triangle-left-container" id="triangle-left-container">
+        <div class="triangle-left" onclick="leftArrow()"></div>
+      </div>
+      <!-- <div class="grid-item">
+        <div class="border" id="border0">
+          <img id="image0">
+          <div class="middle">
+            <div class="title">What what!</div>
+          </div>
+        </div>
+      </div>
+      <div class="border" id="border1">
+        <img id="image1">
+      </div>
+      <div class="border" id="border2">
+        <img id="image2">
+      </div>
+      <div class="border" id="border3">
+        <img id="image3">
+      </div>
+      <div class="border" id="border4">
+        <img id="image4">
+      </div>
+      <div class="border" id="border5">
+        <img id="image5">
+      </div>
+      <div class="border" id="border6">
+        <img id="image6">
+      </div>
+      <div class="border" id="border7">
+        <img id="image7">
+      </div> -->
+
+      <!-- <div class="triangle-right" onclick="rightArrow()"></div> -->
+      <div class="triangle-right-container" id="triangle-right-container">
+        <div class="triangle-right" onclick="rightArrow()"></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="couch">
+    <img src="pics/couch_nb_no_feet.png" style="width: 100%">
+    <!-- <div class="couch-text">Click on an album to read my thoughts</div> -->
+  </div>
+
+  <div class="speaker">
+    <img src="pics/speaker_2_nobg_nofeet.png">
+  </div>
+
+  <div class="speaker-left">
+    <img src="pics/left_speaker-no-feet.png">
+  </div>
+
+  <script type="text/javascript" src="../data.json"></script>
+  <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

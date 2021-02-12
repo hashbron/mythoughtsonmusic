@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Open+Sans&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /*margin: 0;*/
+  /*background-color: black;*/
+
+}
+
+h1 {
+  color: white;
+  font-family: 'Cabin Sketch', cursive;
+}
+
+h2 {
+  color: white;
+  font-family: 'Cabin Sketch', cursive;
+}
+
+p {
+  color: white;
+  padding-left: 10%;
+  padding-right: 10%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.overlay {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.6);;
+  position: fixed;
+  top: 10%;
+  bottom: 10%;
+  overflow: scroll;
+}
+
+.overlay-top {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.6);;
+  position: fixed;
+  top: 0px;
+  height: 10%;
+  overflow: scroll;
+  width: 100%;
+}
+
+.overlay-bottom {
+  display: block;
+  background-color: rgba(0, 0, 0, 0.6);;
+  position: fixed;
+  bottom: 0px;
+  height: 10%;
+  overflow: scroll;
+  width: 100%;
+}

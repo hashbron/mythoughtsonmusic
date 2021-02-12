@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch&family=Open+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Cabin Sketch', cursive;
+    background-color: black;
+  }
+
+  h1 {
+    color: white;
+    font-size: 32pt;
+  }
+
+  p {
+    color: white;
+    font-size: 18pt;
+  }
+
+  div {
+  }
+
+  .grid-container {
+    margin-top: 12px;
+
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    width: 90%;
+    padding-left: 10%;
+
+    display: grid;
+
+    grid-gap: 12px;
+
+    grid-template-columns: 24% 24% 24% 24%;
+
+    justify-content: center;
+  }
+
+  .header {
+    text-align: center;
+    padding: 32px;
+  }
+
+  .row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    width: 90%;
+    padding-left: 10%;
+  }
+
+  .container:hover img {
+    opacity: 0.3;
+  }
+
+  .container {
+    /*background-color: black;*/
+
+    /*margin-top: 12px;*/
+    /*vertical-align: middle;*/
+    /*position: relative;*/
+    width: 100%;
+    height: 19.2vw;
+    z-index: 0;
+  }
+
+  .container img {
+    width: 100%;
+  }
+
+  .middle {
+    /*background-color: red;*/
+    transition: .5s ease;
+    opacity: 0;
+    position: relative;
+    top: -50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    z-index: 0;
+  }
+
+  .border {
+    opacity: 1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    /*border: 12px solid white;*/
+    border: 1vw solid white;
+    z-index: 0;
+  }
+
+  .container:hover .image {
+    opacity: 0.2;
+  }
+
+  .container:hover .middle {
+    opacity: 1;
+  }
+
+  .title {
+  	word-wrap: break-word;
+    color: white;
+    /*font-size: 30px;*/
+    font-family: Arial;
+    font-size: 2.7vw;
+  }
+
+  .overlay {
+    position: fixed;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1000;
+  }
+
+  .popup {
+    position: fixed;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1000;
+  }
+
+  .overlay .overlayBox{
+    position: fixed;
+    visibility: hidden;
+
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+
+    background-color: black;
+    opacity: 0.9;
+  }
+
+  .popup .popupWindow {
+    visibility: hidden;
+    position: fixed;
+
+    width: 80vmin;
+    left: calc(50% - 40vmin);
+    top: 10vmin;
+    height: 80vmin;
+  }
+
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: popupFadeIn 1s;
+    animation: popupFadeIn 1s;
+    z-index: 1001;
+  }
+
+  .overlay .show {
+    visibility: visible;
+    -webkit-animation: overlayFadeIn 0.5s;
+    animation: overlayFadeIn 0.5s;
+  }
+
+  .close {
+    color: white;
+    line-height: 25px;
+    position: absolute;
+    right: 24px;
+    text-align: center;
+    top: 24px;
+    width: 24px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  .close:hover { 
+   color: black;
+ }  
+
+ /* Add animation (fade in the popup) */
+ @-webkit-keyframes popupFadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes popupFadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@-webkit-keyframes overlayFadeIn {
+  from {opacity: 0;} 
+  to {opacity: 0.9;}
+}
+
+@keyframes overlayFadeIn {
+  from {opacity: 0;}
+  to {opacity: 0.9;}
+}
