@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: Arial;
+    background-color: black;
+  }
+
+  h1 {
+    color: white;
+  }
+
+  p {
+    color: white;
+  }
+
+  .grid-holder {
+    position: relative;
+    width: 80%;
+  }
+
+  .header {
+    text-align: center;
+    padding: 32px;
+  }
+
+  .row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+    width: 90%;
+    padding-left: 10%;
+  }
+
+  /* Create four equal columns that sits next to each other */
+  .column {
+    -ms-flex: 25%; /* IE10 */
+    flex: 25%;
+    max-width: 100%;
+    padding: 0 6px;
+  }
+
+  .column img {
+    /*margin-top: 8px;*/
+    vertical-align: middle;
+    width: 100%;
+    /*border: 12px solid white;*/
+  }
+
+  .column border {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  .container:hover img {
+    opacity: 0.3;
+  }
+
+  /* Responsive layout - makes a two column-layout instead of four columns */
+  @media screen and (max-width: 800px) {
+    .column {
+      -ms-flex: 50%;
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 600px) {
+    .column {
+      -ms-flex: 100%;
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .container {
+    vertical-align: middle;
+    position: relative;
+    width: 100%;
+    z-index: 0;
+  }
+
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    z-index: 0;
+  }
+
+  .border {
+    margin-top: 12px;
+    opacity: 1;
+    display: block;
+    width: 100%;
+    background-color: black;
+    border: 12px solid white;
+    z-index: 0;
+  }
+
+  .container:hover .image {
+    opacity: 0.2;
+  }
+
+  .container:hover .middle {
+    opacity: 1;
+  }
+
+  .title {
+    color: white;
+    font-size: 30px;
+    vertical-align: middle;
+  }
+
+  .overlay {
+    position: fixed;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1000;
+  }
+
+  .popup {
+    position: fixed;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1000;
+  }
+
+  .overlay .overlayBox{
+    position: fixed;
+    visibility: hidden;
+
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+
+    background-color: black;
+    opacity: 0.9;
+  }
+
+  .popup .popupWindow {
+    visibility: hidden;
+    position: fixed;
+
+    width: 80vmin;
+    left: calc(50% - 40vmin);
+    top: 10vmin;
+    height: 80vmin;
+  }
+
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: popupFadeIn 1s;
+    animation: popupFadeIn 1s;
+    z-index: 1001;
+  }
+
+  .overlay .show {
+    visibility: visible;
+    -webkit-animation: overlayFadeIn 0.5s;
+    animation: overlayFadeIn 0.5s;
+  }
+
+  .close {
+    color: white;
+    line-height: 25px;
+    position: absolute;
+    right: 24px;
+    text-align: center;
+    top: 24px;
+    width: 24px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  .close:hover { 
+   color: black;
+ }  
+
+ /* Add animation (fade in the popup) */
+ @-webkit-keyframes popupFadeIn {
+  from {opacity: 0;} 
+  to {opacity: 1;}
+}
+
+@keyframes popupFadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@-webkit-keyframes overlayFadeIn {
+  from {opacity: 0;} 
+  to {opacity: 0.9;}
+}
+
+@keyframes overlayFadeIn {
+  from {opacity: 0;}
+  to {opacity: 0.9;}
+}
+
+</style>
+<body>
+
+  <!-- Popup -->
+  <div class="overlay">
+    <span class="overlayBox" id="myOverlay" onclick="fadeOut()"></span>
+  </div>
+
+  <div class="popup">
+    <span class="popupWindow" id="myPopup">
+      <span class="close" onclick="fadeOut()" title="Close">X</span> 
+      <iframe id="theframe" width=100% height=100% style="border: 12px solid white;"></iframe>
+    </span>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>My Thoughts On Music</h1>
+    <p>Click on an album below to read my thoughts.</p>
+  </div>
+
+  <!-- Photo Grid -->
+  <div class="row"> 
+    <div class="column">
+    <div class="container">
+    <div class="border" onclick="fadeIn('miss-anthropocene.html')">
+    <img src="album-artwork/miss-anthropocene.jpg">
+    <div class="middle">
+    <div class="title">Miss Anthropocene</div>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="border" onclick="fadeIn('1000-gecs.html')">
+    <img src="album-artwork/1000-gecs.jpg">
+    <div class="middle">
+    <div class="title">1000 gecs</div>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="border" onclick="fadeIn('gwan.html')">
+    <img src="album-artwork/half-light.jpg">
+    <div class="middle">
+    <div class="title">Gwan</div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="column">
+    <div class="container">
+    <div class="border" onclick="fadeIn('gaslighter.html')">
+    <img src="album-artwork/gaslighter.png">
+    <div class="middle">
+    <div class="title">Gaslighter</div>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="border" onclick="fadeIn('sunset-season.html')">
+    <img src="album-artwork/sunset-season.jpg">
+    <div class="middle">
+    <div class="title">Sunset Season</div>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="border" onclick="fadeIn('ginger.html')">
+    <img src="album-artwork/ginger.jpg">
+    <div class="middle">
+    <div class="title">GINGER</div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="column">
+    <div class="container">
+    <div class="border" onclick="fadeIn('the-steps.html')">
+    <img src="album-artwork/the-steps.jpg">
+    <div class="middle">
+    <div class="title">The Steps</div>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="border" onclick="fadeIn('bike-dream.html')">
+    <img src="album-artwork/half-light.jpg">
+    <div class="middle">
+    <div class="title">Bike Dream</div>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="border" onclick="fadeIn('now-im-in-it.html')">
+    <img src="album-artwork/now-im-in-it.jpg">
+    <div class="middle">
+    <div class="title">Now I'm In It</div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="column">
+    <div class="container">
+    <div class="border" onclick="fadeIn('2019.html')">
+    <img src="album-artwork/2019.jpg">
+    <div class="middle">
+    <div class="title">2019</div>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="border" onclick="fadeIn('in-a-river.html')">
+    <img src="album-artwork/in-a-river.jpg">
+    <div class="middle">
+    <div class="title">In a River</div>
+    </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="border" onclick="fadeIn('melodrama.html')">
+    <img src="album-artwork/melodrama.jpg">
+    <div class="middle">
+    <div class="title">Melodrama</div>
+    </div>
+    </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="header">
+    <p>Thanks for reading!</p>
+  </div>
+
+  <script>
+  // When the user clicks on div, open the popup
+  function fadeIn(str) {
+
+    document.getElementById("theframe").src = "reviews-legacy/" + str;
+
+    var _theframe = document.getElementById("theframe");
+    _theframe.contentWindow.location.href = _theframe.src;
+
+    window.setTimeout(openWindow(str), 500);
+  }
+
+  function openWindow(){
+    document.getElementById("myOverlay").classList.toggle("show");
+    document.getElementById("myPopup").classList.toggle("show");
+    document.body.style.overflow = "hidden"; 
+  }
+
+  function fadeOut() {
+    document.getElementById("myOverlay").classList.toggle("show");
+    document.getElementById("myPopup").classList.toggle("show");
+    document.body.style.overflow = "scroll"; 
+  }
+  // Fix firefox bug of iFrame caching
+
+</script>
+
+</body>
+</html>
